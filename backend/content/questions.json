@@ -1,0 +1,78 @@
+{
+  "Math": {
+    "easy": [
+      {
+        "id": "math_easy_1",
+        "type": "multiple_choice",
+        "text": "What is 2 + 3?",
+        "options": ["4", "5", "6", "7"],
+        "correct_answer": "5",
+        "hint": "Add two and three.",
+        "explanation": "2 + 3 = 5."
+      },
+      {
+        "id": "math_easy_2",
+        "type": "short_answer",
+        "text": "Define a prime number in one sentence.",
+        "answer_keywords": ["greater", "1", "divisors", "1", "itself"],
+        "acceptable_answers": [
+          "A prime number is a number greater than 1 with exactly two divisors: 1 and itself."
+        ],
+        "hint": "Exactly two positive divisors.",
+        "explanation": "Primes have only two positive divisors: 1 and the number itself.",
+        "placeholder": "e.g., Number >1 with exactly two divisors"
+      }
+    ],
+    "medium": [
+      {
+        "id": "math_medium_1",
+        "type": "multiple_choice",
+        "text": "What is the derivative of x^2?",
+        "options": ["x", "2x", "x^2", "2"],
+        "correct_answer": "2x",
+        "hint": "Power rule: d/dx x^n = n x^(n-1)",
+        "explanation": "d/dx x^2 = 2x"
+      }
+    ]
+  },
+  "Science": {
+    "easy": [
+      {
+        "id": "sci_easy_1",
+        "type": "multiple_choice",
+        "text": "Which gas do plants primarily take in for photosynthesis?",
+        "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+        "correct_answer": "Carbon dioxide",
+        "hint": "It contains carbon.",
+        "explanation": "Plants take in CO2 and release O2 during photosynthesis."
+      }
+    ]
+  },
+  "History": {
+    "easy": [
+      {
+        "id": "hist_easy_1",
+        "type": "short_answer",
+        "text": "Who was the first President of the United States?",
+        "acceptable_answers": ["George Washington"],
+        "answer_keywords": ["George", "Washington"],
+        "hint": "He led the Continental Army.",
+        "explanation": "George Washington served as the first U.S. President."
+      }
+    ]
+  },
+  "Literature": {
+    "easy": [
+      {
+        "id": "lit_easy_1",
+        "type": "multiple_choice",
+        "text": "Who wrote 'Romeo and Juliet'?",
+        "options": ["William Shakespeare", "Mark Twain", "Jane Austen", "Charles Dickens"],
+        "correct_answer": "William Shakespeare",
+        "hint": "The Bard.",
+        "explanation": "Shakespeare wrote 'Romeo and Juliet'."
+      }
+    ]
+  }
+}
+

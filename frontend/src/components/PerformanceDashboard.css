@@ -1,0 +1,359 @@
+/* PerformanceDashboard.css */
+.performance-dashboard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.dashboard-title {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.3rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+  padding-bottom: 0.8rem;
+}
+
+.dashboard-section {
+  margin-bottom: 2rem;
+}
+
+.dashboard-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  margin: 0 0 1rem 0;
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.metric-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.metric-value.difficulty-badge {
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.topic-performance {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(245, 245, 245, 0.5);
+  border-radius: 10px;
+}
+
+.topic-performance h5 {
+  margin: 0 0 0.8rem 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.topic-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.topic-name {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.topic-score-bar {
+  position: relative;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.topic-score-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+.topic-score-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.agent-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(245, 245, 245, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.agent-title {
+  margin: 0 0 0.8rem 0;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.agent-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+.metric-row .metric-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.metric-row .metric-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.action-badge, .strategy-badge {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.strategy-badge {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.recent-performance {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(245, 245, 245, 0.5);
+  border-radius: 10px;
+}
+
+.recent-performance h5 {
+  margin: 0 0 0.8rem 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+.performance-trend {
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  height: 60px;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.performance-bar {
+  flex: 1;
+  min-height: 4px;
+  border-radius: 2px;
+  transition: height 0.3s ease;
+  cursor: pointer;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #999;
+}
+
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.empty-content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Custom Scrollbar */
+.performance-dashboard::-webkit-scrollbar {
+  width: 6px;
+}
+
+.performance-dashboard::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.performance-dashboard::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.3);
+  border-radius: 3px;
+}
+
+.performance-dashboard::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .performance-dashboard {
+    padding: 1rem;
+    max-height: none;
+  }
+  
+  .metrics-grid, .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-title {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+  
+  .agent-section {
+    padding: 0.8rem;
+  }
+  
+  .topic-performance, .recent-performance {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .performance-dashboard {
+    padding: 0.8rem;
+  }
+  
+  .metric-card, .stat-card {
+    padding: 0.6rem;
+  }
+  
+  .metric-value, .stat-value {
+    font-size: 1rem;
+  }
+  
+  .metric-label, .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .agent-metrics {
+    gap: 0.3rem;
+  }
+  
+  .metric-row {
+    padding: 0.3rem 0;
+  }
+}
