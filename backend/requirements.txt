@@ -9,3 +9,6 @@ pydantic==2.5.0
 python-socketio==5.9.0
 aiofiles==23.2.1
 pydantic-settings==2.0.3
+scipy==1.11.3
+pandas==2.1.2
+seaborn==0.12.2

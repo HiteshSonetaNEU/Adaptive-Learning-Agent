@@ -1,12 +1,15 @@
 # 🤖 Adaptive Tutorial Agent
 
-An AI-powered educational system that uses **Reinforcement Learning** to personalize the learning experience for each student.
+An AI-powered educational system that uses Reinforcement Learning to personalize the learning experience for each student.
 
-## � Project Overview
+Repository: [Adaptive-Learning-Agent](https://github.com/HiteshSonetaNEU/Adaptive-Learning-Agent)
+Demo Video: [YouTube Demo](https://www.youtube.com/watch?v=FjvA1jOP2cg&ab_channel=HiteshSoneta)
+
+## Project Overview
 
 This system implements two RL agents that work together to create an adaptive tutorial experience:
-- **Q-Learning Agent**: Adapts question difficulty based on student performance
-- **Policy Gradient Agent**: Selects optimal content and teaching strategies
+- Q-Learning Agent: adapts question difficulty
+- Policy Gradient Agent (REINFORCE): selects content and teaching strategies
 
 ## 🏗️ Architecture
 
@@ -66,19 +69,13 @@ npm start
 ## 🧪 Training the Agents
 
 ### Using Google Colab (Recommended)
-```python
-# Upload training_manager.py and agent files to Colab
-from training_manager import TrainingManager
+- Open Colab and use the notebook: `colab/Complete_Tutorial_Agent_All_In_One.ipynb`.
+- Run all cells to train and export models.
 
-manager = TrainingManager()
-manager.train_agents(episodes=1000)
-manager.save_models("trained_models/")
-```
-
-### Local Training
+### Local Training (example)
 ```bash
 cd backend
-python -c "from agents.training_manager import TrainingManager; TrainingManager().train_agents(1000)"
+python -c "from agents.training_manager import TutorTrainingManager; from environment.tutorial_environment import TutorialEnvironment; from agents.q_learning_tutor import TutorQLearning; from agents.policy_gradient_tutor import TutorPolicyGradient; env=TutorialEnvironment(['Math','Science','History','Literature'], ['easy','medium','hard'], ['multiple_choice','short_answer','essay']); mgr=TutorTrainingManager(env, TutorQLearning(env.get_state_size(),7), TutorPolicyGradient(env.get_state_size(),5)); [mgr.train_episode() for _ in range(100)]; mgr.save_models('final')"
 ```
 
 ## 🔧 Configuration
@@ -153,87 +150,47 @@ This system demonstrates how RL can revolutionize education by:
 - Collaborative learning environments
 - Integration with existing LMS platforms
 
-## 📄 License
+## 📊 Reproducible Evaluation and Figures
 
-This project is for educational purposes and demonstrates the application of Reinforcement Learning in adaptive education systems.
-python demo.py
-```
+We provide a script to produce learning curves, comparative analyses, and statistical validation, and to export artifacts to `docs/`.
 
-### 🧠 Step 2: Train Models in Google Colab (SIMPLIFIED!)
-1. **Open Colab**: Go to [Google Colab](https://colab.research.google.com/)
-2. **Upload Notebook**: Upload `colab/warehouse_rl_training.ipynb` directly to Colab
-3. **Run Training**: Click "Runtime" → "Run All" (takes ~30-60 minutes)
-4. **Download Models**: After training, Colab will automatically create a zip file for download
-
-**No need to upload entire folder to Google Drive!** The notebook is self-contained.
-
-### 🚀 Step 3: Run with Trained Models
+### Generate results and figures
 ```bash
-# Backend with trained models
-python backend/main.py
-# Server runs on http://localhost:8000
+cd backend
+python -m backend.scripts.evaluate --sessions 50 --steps 15 --out ../docs --seed 42
 ```
 
-### 🎨 Step 4: Frontend Visualization
-```bash
-cd frontend
-npm install
-npm start
-# React app runs on http://localhost:3000
+This will create:
+- `docs/results/` with CSV summaries and `statistical_summary.json` (t-test, Wilcoxon, 95% CI)
+- `docs/figures/` with accuracy distribution and per-session accuracy plots
+
+### Expected artifacts to commit
+- `docs/figures/accuracy_distribution.png`
+- `docs/figures/accuracy_over_sessions.png`
+- `docs/results/baseline_summary_*.csv`
+- `docs/results/trained_summary_*.csv`
+- `docs/results/statistical_summary.json`
+
+## 🧭 Project Structure
+```
+backend/
+  ├─ agents/
+  ├─ environment/
+  ├─ models/
+  └─ scripts/
+frontend/
+colab/
+docs/
 ```
 
-## Training Instructions
-
-### Required Colab File
-- **File**: `colab/warehouse_rl_training_new.ipynb` (OPTIMIZED VERSION ✅)
-- **Platform**: Google Colab (recommended for GPU acceleration)
-- **Duration**: 30-60 minutes
-- **Output**: Trained models + performance metrics
-
-### Model Download & Setup
-**✅ MODELS ALREADY DEPLOYED!** The trained models from the optimized Colab session are now in `backend/models/`:
-
-```
-backend/models/
-├── final_q_learning.pkl            # Q-Learning navigator agents (TRAINED ✅)
-├── final_policy_gradient_policy_agent_*.pth    # Task manager neural networks (TRAINED ✅)
-├── final_policy_gradient_value_agent_*.pth     # Value networks (TRAINED ✅)
-├── final_training_stats.json       # Complete training metrics
-├── training_progress.png           # Training visualization charts
-├── agent_comparison.png           # Q-Learning vs Policy Gradient comparison
-├── normalized_performance.png     # Performance metrics over time
-└── experiment_results_summary.json # Performance analysis
-```
-
-**Training Results Summary:**
-- 🎯 **Collision Rate**: 0.010 (✅ Target <0.05 achieved)
-- 📈 **Performance Improvement**: +58.4% over training
-- 🧠 **Q-States Explored**: 609,461 unique states
-- ⚡ **Training Duration**: 1.62 hours on Google Colab
-- 🏆 **Statistical Significance**: p < 0.05 (highly significant learning)
-
-## Current System State
-✅ **Demo Working**: Complete system validation successful  
-✅ **Training Complete**: Optimized models trained and deployed  
-✅ **Production Ready**: Trained models loaded in backend/models/
-
-## Project Structure
-```
-warehouse_rl_system/
-├── backend/                 # FastAPI server
-│   ├── environment/        # Grid world environment
-│   ├── agents/            # RL agent implementations
-│   ├── models/            # Model loading utilities
-│   └── api/               # WebSocket & REST APIs
-├── frontend/              # React dashboard
-├── colab/                 # Training notebooks for Colab
-├── models/                # Trained model storage
-└── docs/                  # Documentation and results
-```
+## Reports and Demo
+- PDFs: `docs/Experimental Design and Results - Adaptive Learning Agent.pdf`, `docs/Technical Report - Reinforcement Learning for Adaptive Educational Agents.pdf`
+- Demo video: [YouTube Demo](https://www.youtube.com/watch?v=FjvA1jOP2cg&ab_channel=HiteshSoneta)
 
 ## Requirements Met
-- ✅ **Two RL Approaches**: Q-Learning + Policy Gradient
-- ✅ **Multi-Agent System**: Coordinated warehouse robots
-- ✅ **Agent Orchestration**: Dynamic task allocation
-- ✅ **Real-time Learning**: Observable improvement over time
-- ✅ **Performance Metrics**: Comprehensive evaluation
+- Two RL Approaches (Q-Learning + Policy Gradient)
+- Real-time Learning Visualization (Frontend)
+- Evaluation with statistical validation and figures (via evaluation script)
+
+## License
+Educational use only. Add a `LICENSE` file if needed.
